@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import reducer from './reducers/index.js';
@@ -25,7 +26,11 @@ const loadFromSessionStorage = state => {
 
 const persistedState = loadFromSessionStorage();
 
-const store = createStore(reducer, persistedState, applyMiddleware(thunk));
+const store = createStore(
+	reducer,
+	persistedState,
+	composeWithDevTools(applyMiddleware(thunk))
+);
 
 store.subscribe(() => saveToSessionStorage(store.getState()));
 export default store;

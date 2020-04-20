@@ -1,4 +1,4 @@
-import { X_WINS, O_WINS, DRAW } from '../utils/actionTypes';
+import { X_WINS, O_WINS, DRAW, CLEAR } from '../utils/actionTypes';
 
 const initialState = {
 	win: null,
@@ -24,6 +24,9 @@ const gameStatusReducer = (state = initialState, action) => {
 				win: null,
 				draw: true
 			};
+
+		case CLEAR:
+			return initialState;
 
 		default:
 			return state;

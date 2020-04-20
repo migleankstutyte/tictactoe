@@ -1,7 +1,7 @@
-import { X_WINS, O_WINS, DRAW } from '../utils/actionTypes';
+import { X_WINS, O_WINS, DRAW, CLEAR } from '../utils/actionTypes';
 import calculateWinner from '../utils/resultHelper';
 
-const checkResult = board => {
+export function checkResult(board) {
 	if (calculateWinner(board, 'X')) {
 		return {
 			type: X_WINS
@@ -22,6 +22,13 @@ const checkResult = board => {
 			};
 		}
 	}
-};
+}
+
+export function clearResultAction(state) {
+	return {
+		type: CLEAR,
+		state
+	};
+}
 
 export default checkResult;

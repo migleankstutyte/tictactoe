@@ -1,4 +1,4 @@
-import { DRAW_X, DRAW_O } from '../utils/actionTypes';
+import { DRAW_X, DRAW_O, STOP } from '../utils/actionTypes';
 
 export function drawXAction(index) {
 	return dispatch => {
@@ -21,5 +21,12 @@ export function drawOAction(index) {
 			});
 			resolve();
 		});
+	};
+}
+
+export function clearBoardAction(state) {
+	return {
+		type: STOP,
+		state
 	};
 }

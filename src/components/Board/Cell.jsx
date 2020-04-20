@@ -6,8 +6,8 @@ import { toggleTurnAction } from '../../actions/playerActions.js';
 const Cell = props => {
 	const { value, index, drawBoard, players, board, toggleTurn } = props;
 
-	const drawGameBoard = async () => {
-		await drawBoard(board, players, index);
+	const drawGameBoard = () => {
+		drawBoard(board, players, index);
 		toggleTurn();
 	};
 
